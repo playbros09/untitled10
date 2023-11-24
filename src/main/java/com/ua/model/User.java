@@ -22,4 +22,7 @@ public class User {
     private boolean is_autorized;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Ticket> tickets = new ArrayList<>();
+
+    public void setPassword(String password) {
+    }
 }
