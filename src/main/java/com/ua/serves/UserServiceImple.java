@@ -2,6 +2,7 @@ package com.ua.serves;
 
 import com.ua.model.User;
 import com.ua.repository.UserRepository;
+import com.ua.serves.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
@@ -15,7 +16,7 @@ import java.util.List;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class UserServiceImple implements UserService{
+public class UserServiceImple implements UserService {
 
     private final UserRepository userRepository;
     @Override
