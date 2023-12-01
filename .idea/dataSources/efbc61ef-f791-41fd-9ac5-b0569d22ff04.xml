@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.49">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <IntrospectionStateNumber>780</IntrospectionStateNumber>
+      <IntrospectionStateNumber>796</IntrospectionStateNumber>
       <ServerVersion>13.12</ServerVersion>
-      <StartupTime>1700566927</StartupTime>
+      <StartupTime>1701241677</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -803,7 +803,7 @@ false Zulu
 13158||10|C|G
 13158||-9223372036854775808|U|G
 13158||10|U|G</Grants>
-      <IntrospectionStateNumber>780</IntrospectionStateNumber>
+      <IntrospectionStateNumber>796</IntrospectionStateNumber>
       <ObjectId>13442</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4147,9 +4147,9 @@ false Zulu
     <schema id="254" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>780</IntrospectionStateNumber>
-      <IntrospectionTimestamp>2023-11-22.11:39:09.030</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-11-22.09:39:09</LocalIntrospectionTimestamp>
+      <IntrospectionStateNumber>796</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2023-11-30.19:10:27.715</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-11-30.17:10:28</LocalIntrospectionTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>287</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4228,7 +4228,7 @@ false Zulu
     </table>
     <table id="265" parent="254" name="users">
       <ObjectId>33254</ObjectId>
-      <StateNumber>776</StateNumber>
+      <StateNumber>785</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4427,11 +4427,11 @@ plane_id</ColNames>
       <SequenceId>33252</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="292" parent="265" name="is_autorized">
+    <column id="292" parent="265" name="is_authorized">
       <DasType>boolean|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>758</StateNumber>
+      <StateNumber>795</StateNumber>
       <TypeId>16</TypeId>
     </column>
     <column id="293" parent="265" name="username">
@@ -4442,31 +4442,34 @@ plane_id</ColNames>
       <TypeId>1043</TypeId>
     </column>
     <column id="294" parent="265" name="password">
-      <DasType>integer|0s</DasType>
+      <DasType>varchar|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>776</StateNumber>
-      <TypeId>23</TypeId>
+      <StateNumber>785</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
     <index id="295" parent="265" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>33257</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>776</StateNumber>
+      <StateNumber>785</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <index id="296" parent="265" name="uk_r43af9ap4edm43mmtq01oddj6">
       <ColNames>username
 password</ColNames>
-      <ObjectId>33284</ObjectId>
-      <StateNumber>776</StateNumber>
+      <ObjectId>41011</ObjectId>
+      <StateNumber>785</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
-      <CollationNames>default</CollationNames>
-      <CollationIds>100</CollationIds>
-      <CollationParentNames>pg_catalog</CollationParentNames>
+      <CollationIds>100
+100</CollationIds>
+      <CollationNames>default
+default</CollationNames>
+      <CollationParentNames>pg_catalog
+pg_catalog</CollationParentNames>
     </index>
     <key id="297" parent="265" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
@@ -4476,9 +4479,9 @@ password</ColNames>
       <UnderlyingIndexId>33257</UnderlyingIndexId>
     </key>
     <key id="298" parent="265" name="uk_r43af9ap4edm43mmtq01oddj6">
-      <ObjectId>33285</ObjectId>
-      <StateNumber>776</StateNumber>
-      <UnderlyingIndexId>33284</UnderlyingIndexId>
+      <ObjectId>41012</ObjectId>
+      <StateNumber>785</StateNumber>
+      <UnderlyingIndexId>41011</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

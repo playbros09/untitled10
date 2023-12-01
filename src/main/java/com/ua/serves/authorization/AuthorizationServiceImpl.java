@@ -5,7 +5,6 @@ import com.ua.repository.UserRepository;
 import com.ua.transport.dto.UserIncomeDTO;
 import com.ua.transport.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
-import org.apache.tomcat.util.buf.UEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,14 +19,18 @@ public class AuthorizationServiceImpl implements AuthorizationService {
     @Override
     public boolean login(UserIncomeDTO dto) {
         User incomingUser = userMapper.dtoToEntity(dto);
-        User dbUser= userRepository.getUserByUsernameAndPassword(incomingUser.getUsername(), incomingUser.getPassword);
-        if(dbUser!=null){dbUser.set_autorized(true);return true;}else {return false;}
+        User dbUser= userRepository.getUserByUsernameAndPassword(incomingUser.getUsername(), incomingUser.getPassword());
+        if(dbUser!=null){dbUser.setAuthorized(true);
+            return true;
+        }else {
+            return false;
+        }
     }
     @Override
     public void logout(UserIncomeDTO dto) {
         User incomingUser = userMapper.dtoToEntity(dto);
-        User dbUser = userRepository.getUserByUsernameAndPassword(incomingUser.getUsername());
-        dbUser.set_autorized(false);
+        User dbUser = userRepository.getUserByUsername(incomingUser.getUsername());
+        dbUser.setAuthorized(false);
     }
 
     @Override
