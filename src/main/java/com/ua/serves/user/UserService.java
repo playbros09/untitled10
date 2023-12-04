@@ -1,6 +1,7 @@
 package com.ua.serves.user;
 
 import com.ua.model.User;
+import com.ua.transport.dto.UserDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -8,17 +9,17 @@ import java.awt.print.Pageable;
 import java.util.List;
 
 public interface UserService {
-    void create(User user);
+    void create(UserDTO dto);
 
 
-    User getById(Long userId);
+    UserDTO getById(Long userId);
 
-    Page<User> getAll(Pageable pageable);
+    Page<UserDTO> getAll(Pageable pageable);
 
     @Transactional(readOnly = true)
-    List<User> getAllSoarted();
+    List<UserDTO> getAllSoarted();
 
-    User update(Long userId, User user);
+    void update(Long userId, UserDTO user);
 
     void delete(Long userId);
 }
