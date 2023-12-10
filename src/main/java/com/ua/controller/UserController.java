@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.awt.print.Pageable;
 import java.util.List;
-@Api(value ="User Controller Api", description = "Hello, this is my description")
+@Api(value ="User Controller Api")
 @RestController
 @RequestMapping("/welcome")
 @RequiredArgsConstructor

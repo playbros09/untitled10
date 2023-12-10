@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: admin
+      changes:
+        - loadData:
+            file: ../input-data/users.csv
+            tableName: users
+            relativeToChangelogFile: true
+        - loadData:
+            file: ../input-data/plane.csv
+            tableName: plane
+            relativeToChangelogFile: true
+
+        - loadData:
+           file: ../input-data/tickets.csv
+           tableName: tickets
+           relativeToChangelogFile: true
+        - loadData:
+            file: ../input-data/hall.csv
+            tableName: hall
+            relativeToChangelogFile: true
+
+        - loadData:
+            file: ../input-data/times.csv
+            tableName: times
+            relativeToChangelogFile: true
+
+
+#

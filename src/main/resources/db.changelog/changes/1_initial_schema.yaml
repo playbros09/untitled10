@@ -1,0 +1,159 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: admin
+      changes:
+        - createSequence:
+            sequenceName: users_id_seq
+            startValue: 1
+            incrementBy: 1
+            minValue: 1
+        - createSequence:
+            sequenceName: plane_id_seq
+            startValue: 1
+            incrementBy: 1
+            minValue: 1
+        - createSequence:
+            sequenceName: times_id_seq
+            startValue: 1
+            incrementBy: 1
+            minValue: 1
+        - createSequence:
+            sequenceName: tickets_id_seq
+            startValue: 1
+            incrementBy: 1
+            minValue: 1
+        - createSequence:
+            sequenceName: plane_hall_id_seq
+            startValue: 1
+            incrementBy: 1
+            minValue: 1
+
+        - createTable:
+            schemaName: public
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  defaultValueComputed: nextval('users_id_seq'::regclass)
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: is_authorized
+                  type: boolean
+              - column:
+                  name: password
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: username
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+
+        - createTable:
+            schemaName: public
+            tableName: plane
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  defaultValueComputed: nextval('plane_id_seq'::regclass)
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(225)
+                  constraints:
+                    nullable: false
+                    unique: true
+
+        - createTable:
+            tableName: times
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  defaultValueComputed: nextval('times_id_seq'::regclass)
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: start_data
+                  type: timestamp
+              - column:
+                  name: plane_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: times_plane_fk
+                    references: plane(id)
+              - column:
+                  name: plane_hall_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: plane_hall_id_users_fk
+                    references: users(id)
+
+        - createTable:
+            tableName: tickets
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  defaultValueComputed: nextval('tickets_id_seq'::regclass)
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: plane_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: ticket_plane_fk
+                    references: plane(id)
+              - column:
+                  name: plane_hall_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: plane_hall_id_users_fk
+                    references: users(id)
+
+        - createTable:
+            schemaName: public
+            tableName: hall
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  defaultValueComputed: nextval('plane_hall_id_seq'::regclass)
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: number
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: name
+                  type: varchar(225)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: max_size
+                  type: bigint
+                  constraints:
+                    nullable: false
+
+
+
+
+       # - addAutoIncrement:
+        #    columnDataType: bigint
+         #   columnName: id
+          #  incrementBy: 1
+           # schemaName: times_id_seq
+            #startWith: 1
+             #tableName: times

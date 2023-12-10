@@ -2,18 +2,17 @@ server:
   port: 8081
 
 spring:
-  h2:
-    console:
-      enabled=true
-
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: udxAtugEqSu@6bP
-  jpa:
+  liquibase:
+    change-log: db.changelog/db.changelog-master.yaml
+    default-schema: public
 
+  jpa:
     open-in-view: false
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     show-sql: true
 
