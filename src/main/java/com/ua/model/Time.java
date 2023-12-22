@@ -21,7 +21,5 @@ public class Time {
     @JoinColumn(name = "plane_id")
     private Plane plane;
 
-    @OneToOne
-    @JoinColumn(name = "hall_id")
-    private Hall hall;
+
 }

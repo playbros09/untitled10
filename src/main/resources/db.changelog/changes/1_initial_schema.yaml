@@ -36,7 +36,7 @@ databaseChangeLog:
               - column:
                   name: id
                   type: bigint
-                  defaultValueComputed: nextval('users_id_seq'::regclass)
+                  defaultValueComputed: nextval('users_id_seq')
                   constraints:
                     primaryKey: true
               - column:
@@ -62,7 +62,7 @@ databaseChangeLog:
               - column:
                   name: id
                   type: bigint
-                  defaultValueComputed: nextval('plane_id_seq'::regclass)
+                  defaultValueComputed: nextval('plane_id_seq')
                   constraints:
                     primaryKey: true
               - column:
@@ -78,7 +78,7 @@ databaseChangeLog:
               - column:
                   name: id
                   type: bigint
-                  defaultValueComputed: nextval('times_id_seq'::regclass)
+                  defaultValueComputed: nextval('times_id_seq')
                   constraints:
                     primaryKey: true
               - column:
@@ -94,7 +94,7 @@ databaseChangeLog:
                   name: plane_hall_id
                   type: bigint
                   constraints:
-                    foreignKeyName: plane_hall_id_users_fk
+                    foreignKeyName: plane_hall_users_fk
                     references: users(id)
 
         - createTable:
@@ -103,7 +103,7 @@ databaseChangeLog:
               - column:
                   name: id
                   type: bigint
-                  defaultValueComputed: nextval('tickets_id_seq'::regclass)
+                  defaultValueComputed: nextval('tickets_id_seq')
                   constraints:
                     primaryKey: true
               - column:
@@ -113,10 +113,10 @@ databaseChangeLog:
                     foreignKeyName: ticket_plane_fk
                     references: plane(id)
               - column:
-                  name: plane_hall_id
+                  name: user_id
                   type: bigint
                   constraints:
-                    foreignKeyName: plane_hall_id_users_fk
+                    foreignKeyName: ticket_user_fk
                     references: users(id)
 
         - createTable:
@@ -126,7 +126,7 @@ databaseChangeLog:
               - column:
                   name: id
                   type: bigint
-                  defaultValueComputed: nextval('plane_hall_id_seq'::regclass)
+                  defaultValueComputed: nextval('plane_hall_id_seq')
                   constraints:
                     primaryKey: true
               - column:

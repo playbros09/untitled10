@@ -28,7 +28,7 @@ public class User {
     @Column(nullable = false)
     private boolean isAuthorized;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> tickets;
 
 
