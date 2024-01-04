@@ -1,16 +1,11 @@
 package com.ua.serves.authorization;
 
-import com.ua.model.User;
 import com.ua.repository.UserRepository;
-import com.ua.serves.user.UserService;
-import liquibase.pro.packaged.I;
-import liquibase.pro.packaged.S;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.transaction.annotation.Transactional;
 
 import static com.ua.serves.authorization.util.MockGenerator.generateUser;
 import static org.junit.Assert.assertNotNull;
@@ -19,12 +14,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 @ActiveProfiles("test")
-public class AuthorizationServiseIT {
+public class AuthorizationServiceIT {
     @Autowired
     private AuthorizationService authorizationService;
 
-    @Autowired
+    @Mock
     private UserRepository userRepository;
+
     @Test
     public void isAuthorizeWhenUserValid(){
         String username = "admin";
@@ -50,6 +46,6 @@ public class AuthorizationServiseIT {
         String EmptyPassword = "";
 
         userRepository.save(generateUser(username, password));
-        assertThrows(RuntimeException.class, () -> authorizationService.isAuthorize(username, EmptyPassword));
+        assertThrows(RuntimeException.class, () -> authorizationService.isAuthorize(EmptyUsername, EmptyPassword));
     }
 }

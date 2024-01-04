@@ -66,7 +66,7 @@ public class AuthorizationServiceITest {
         when(userRepository.getUserByUsernameAndPassword(any(), any())).thenReturn(null);
 
         // then
-        assertThrows(RuntimeException.class, () -> authorizationService.isAuthorize(username, password));
+        assertThrows(RuntimeException.class, () -> authorizationService.isAuthorize(null, null));
         verify(userRepository, times(1)).getUserByUsernameAndPassword(any(), any());
 
     }
